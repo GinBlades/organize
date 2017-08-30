@@ -1,0 +1,8 @@
+root:
+  path: /
+  defaults: { _controller: "AppBundle:Category:index" }
+  methods: GET
+app_category:
+    resource: "@AppBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
