@@ -9,7 +9,21 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="grid-container">
+            <div class="grid-y">
+                <nav class="cell shrink">
+                    <ul class="menu">
+                        <li><a href="{{ path("root") }}">Home</a></li>
+                        <li><a href="{{ path("category_index") }}">Categories</a></li>
+                        <li><a href="{{ path("task_index") }}">Tasks</a></li>
+                        <li><a href="{{ path("tag_index") }}">Tags</a></li>
+                    </ul>
+                </nav>
+                <div class="cell body">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
         {% block javascripts %}
             <script src="{{ asset("build/app.js") }}"></script>
         {% endblock %}

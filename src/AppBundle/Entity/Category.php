@@ -23,6 +23,11 @@ class Category
     private $description;
 
     /**
+     * @var parentId
+     */
+    private $parentId;
+
+    /**
      * @var Category
      */
     private $parent;
@@ -83,6 +88,22 @@ class Category
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return int
+     */
+    public function getParentId()
+    {
+        return $this->parentId;
+    }
+
+    /**
+     * @param int $parentId
+     */
+    public function setParentId($parentId)
+    {
+        $this->parentId = $parentId;
     }
 
     /**

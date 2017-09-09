@@ -25,6 +25,9 @@ AppBundle\Entity\Category:
             type: string
             length: 255
             unique: true
+        parentId:
+            type: integer
+            nullable: true
         description:
             type: text
             nullable: true

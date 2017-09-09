@@ -55,6 +55,11 @@ class Task
     private $status;
 
     /**
+     * @var int
+     */
+    private $parentId;
+
+    /**
      * @var Task
      */
     private $parent;
@@ -213,6 +218,22 @@ class Task
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @return int
+     */
+    public function getParentId()
+    {
+        return $this->parentId;
+    }
+
+    /**
+     * @param int $parentId
+     */
+    public function setParentId($parentId)
+    {
+        $this->parentId = $parentId;
     }
 
     /**

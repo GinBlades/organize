@@ -6,6 +6,8 @@ AppBundle\Entity\Note:
         task:
             targetEntity: AppBundle\Entity\Task
             inversedBy: notes
+            joinColumn:
+                nullable: false
     id:
         id:
             type: integer
