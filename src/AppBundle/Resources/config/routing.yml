@@ -1,6 +1,6 @@
 root:
   path: /
-  defaults: { _controller: "AppBundle:Category:index" }
+  defaults: { _controller: "AppBundle:Default:index" }
   methods: GET
 app_category:
     resource: "@AppBundle/Resources/config/routing/category.yml"

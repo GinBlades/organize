@@ -1,0 +1,18 @@
+AppBundle\Entity\Note:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\NoteRepository
+    manyToOne:
+        task:
+            targetEntity: AppBundle\Entity\Task
+            inversedBy: notes
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: text
+    lifecycleCallbacks: {  }

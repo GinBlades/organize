@@ -1,19 +1,11 @@
-AppBundle\Entity\Category:
+AppBundle\Entity\Tag:
     type: entity
     table: null
-    repositoryClass: AppBundle\Repository\CategoryRepository
-    oneToMany:
-        children:
-            targetEntity: AppBundle\Entity\Category
-            mappedBy: parent
-    manyToOne:
-        parent:
-            targetEntity: AppBundle\Entity\Category
-            inversedBy: children
+    repositoryClass: AppBundle\Repository\TagRepository
     manyToMany:
         tasks:
             targetEntity: AppBundle\Entity\Task
-            mappedBy: categories
+            mappedBy: tags
     id:
         id:
             type: integer

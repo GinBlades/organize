@@ -1,0 +1,57 @@
+AppBundle\Entity\Task:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\TaskRepository
+    manyToOne:
+        parent:
+            targetEntity: AppBundle\Entity\Task
+            inversedBy: children
+    oneToMany:
+        children:
+            targetEntity: AppBundle\Entity\Category
+            mappedBy: parent
+        notes:
+            targetEntity: AppBundle\Entity\Note
+            mappedBy: task
+    manyToMany:
+        categories:
+            targetEntity: AppBundle\Entity\Category
+            inversedBy: tasks
+        tags:
+            targetEntity: AppBundle\Entity\Tag
+            inversedBy: tasks
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+            nullable: true
+        parentId:
+            type: integer
+            nullable: true
+        difficulty:
+            type: integer
+            nullable: true
+        startTime:
+            type: datetime
+            nullable: true
+        priority:
+            type: integer
+            options:
+                default: 5
+        deadline:
+            type: datetime
+            nullable: true
+        endTime:
+            type: datetime
+            nullable: true
+        status:
+            type: integer
+    lifecycleCallbacks: {  }

@@ -3,9 +3,9 @@
 namespace AppBundle\Entity;
 
 /**
- * Category
+ * Tag
  */
-class Category
+class Tag
 {
     /**
      * @var int
@@ -23,16 +23,6 @@ class Category
     private $description;
 
     /**
-     * @var Category
-     */
-    private $parent;
-
-    /**
-     * @var Category[]
-     */
-    private $children;
-
-    /**
      * @var Task[]
      */
     private $tasks;
@@ -48,13 +38,11 @@ class Category
     /**
      * @param string $name
      *
-     * @return Category
+     * @return Tag
      */
     public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -68,13 +56,11 @@ class Category
     /**
      * @param string $description
      *
-     * @return Category
+     * @return Tag
      */
     public function setDescription($description)
     {
         $this->description = $description;
-
-        return $this;
     }
 
     /**
@@ -83,43 +69,6 @@ class Category
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * @return Category
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * @param Category $parent
-     */
-    public function setParent($parent)
-    {
-        $this->parent = $parent;
-    }
-
-    /**
-     * @return Category[]
-     */
-    public function getChildren()
-    {
-        return $this->children;
-    }
-
-    /**
-     * @param Category[] $children
-     */
-    public function setChildren($children)
-    {
-        $this->children = $children;
-    }
-
-    public function __toString()
-    {
-        return $this->getName();
     }
 
     /**
