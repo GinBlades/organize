@@ -1,5 +1,24 @@
 @import "../../node_modules/foundation-sites/scss/foundation";
 @include foundation-everything;
+
+@import "../../node_modules/jquery-ui/themes/base/core";
+@import "../../node_modules/jquery-ui/themes/base/theme";
+@import "../../node_modules/jquery-ui/themes/base/datepicker";
+@import "../../node_modules/jquery-ui/themes/base/slider";
+
 * {
     font-family: sans-serif;
+}
+
+.ui-slider {
+    margin: 1em;
+
+    .ui-slider-handle {
+        width: 3em;
+        height: 1.6em;
+        top: 50%;
+        margin-top: -.8em;
+        text-align: center;
+        line-height: 1.6em;
+    }
 }

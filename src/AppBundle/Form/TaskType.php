@@ -3,6 +3,8 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,9 +15,20 @@ class TaskType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('description')->add('parentId')->add('difficulty')->add('startTime')->add('priority')->add('deadline')->add('endTime')->add('status')->add('parent')->add('categories')->add('tags');
+        $builder
+            ->add('name')
+            ->add('description')
+            ->add('difficulty', HiddenType::class, $this->sliderOptions())
+            ->add('startTime', DateType::class, $this->datePickerOptions())
+            ->add('priority', HiddenType::class, $this->sliderOptions())
+            ->add('deadline', DateType::class, $this->datePickerOptions())
+            ->add('endTime', DateType::class, array_merge(["required" => false], $this->datePickerOptions()))
+            ->add('status')
+            ->add('parent', null, ["required" => false])
+            ->add('categories')
+            ->add('tags');
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -26,13 +39,19 @@ class TaskType extends AbstractType
         ));
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
+    private function sliderOptions()
     {
-        return 'appbundle_task';
+        return [
+            "attr" => ["class" => "slider"]
+        ];
     }
 
-
+    private function datePickerOptions()
+    {
+        return [
+            "widget" => "single_text",
+            "attr" => ["class" => "datepicker"],
+            "html5" => false
+        ];
+    }
 }

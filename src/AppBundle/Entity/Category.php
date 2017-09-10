@@ -138,11 +138,6 @@ class Category
         $this->children = $children;
     }
 
-    public function __toString()
-    {
-        return $this->getName();
-    }
-
     /**
      * @return Task[]
      */
@@ -157,5 +152,10 @@ class Category
     public function setTasks($tasks)
     {
         $this->tasks = $tasks;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

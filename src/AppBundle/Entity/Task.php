@@ -315,4 +315,9 @@ class Task
     {
         $this->tags = $tags;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }
