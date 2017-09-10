@@ -22,3 +22,21 @@
         line-height: 1.6em;
     }
 }
+
+.slider-container {
+    position: relative;
+
+    .tick {
+        position: absolute;
+        bottom: 0;
+        line-height: 1em;
+    }
+
+    .slider-min {
+        left: 0;
+    }
+
+    .slider-max {
+        right: 0;
+    }
+}

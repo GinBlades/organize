@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Task;
+
 /**
  * TaskRepository
  *
@@ -10,4 +12,15 @@ namespace AppBundle\Repository;
  */
 class TaskRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findActive()
+    {
+        return $this->createQueryBuilder("task")
+            ->andWhere("task.status = :status")
+            ->setParameter("status", Task::statusMap()["Active"])
+            ->andWhere("task.endTime IS NULL")
+            ->orderBy("task.deadline", "ASC")
+            ->orderBy("task.priority", "DESC")
+            ->getQuery()
+            ->execute();
+    }
 }

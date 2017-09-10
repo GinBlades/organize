@@ -31,7 +31,7 @@
                 <td>{{ task.priority }}</td>
                 <td>{% if task.deadline %}{{ task.deadline|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if task.endTime %}{{ task.endTime|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ task.status }}</td>
+                <td>{{ task.displayStatus() }}</td>
                 <td>
                     <ul>
                         <li>

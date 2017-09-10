@@ -9,6 +9,18 @@ use AppBundle\Entity\Category;
  */
 class Task
 {
+    public static function statusMap()
+    {
+        return [
+            "Pending" => 0,
+            "Active" => 1,
+            "Completed" => 2,
+            "Archived" => 3,
+            "Abandoned" => 4,
+            "Reference" => 5
+        ];
+    }
+
     /**
      * @var int
      */
@@ -319,5 +331,15 @@ class Task
     public function __toString()
     {
         return $this->getName();
+    }
+
+    public function displayStatus()
+    {
+        if ($this->getStatus() === null) {
+            return null;
+        }
+
+        $remap = array_flip($this::statusMap());
+        return $remap[$this->getStatus()];
     }
 }
