@@ -27,4 +27,9 @@ class SecurityController extends Controller
             "loginForm" => $form->createView()
         ]);
     }
+
+    public function logoutAction()
+    {
+        throw new \Exception("This should never be reached.");
+    }
 }
