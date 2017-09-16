@@ -17,6 +17,17 @@ class User implements UserInterface
     private $email;
 
     /**
+     * @var string
+     */
+    private $password;
+
+    /**
+     * Non-persisted plaintext password
+     * @var string
+     */
+    private $plainPassword;
+
+    /**
      * @return string
      */
     public function getEmail()
@@ -42,9 +53,6 @@ class User implements UserInterface
         return ["ROLE_USER"];
     }
 
-    public function getPassword()
-    {
-    }
 
     public function getSalt()
     {
@@ -52,5 +60,27 @@ class User implements UserInterface
 
     public function eraseCredentials()
     {
+        $this->plainPassword = null;
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+        $this->password = null;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
     }
 }

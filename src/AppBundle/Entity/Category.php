@@ -23,7 +23,7 @@ class Category
     private $description;
 
     /**
-     * @var parentId
+     * @var int
      */
     private $parentId;
 
