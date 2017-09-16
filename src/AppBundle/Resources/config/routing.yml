@@ -8,6 +8,9 @@ security_login:
 security_logout:
   path: /logout
   defaults: { _controller: "AppBundle:Security:logout" }
+user_register:
+  path: /register
+  defaults: { _controller: "AppBundle:User:register" }
 app_category:
     resource: "@AppBundle/Resources/config/routing/category.yml"
     prefix:   /category
