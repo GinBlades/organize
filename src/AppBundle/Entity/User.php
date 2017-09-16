@@ -28,6 +28,11 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
+     * @var array
+     */
+    private $roles = [];
+
+    /**
      * @return string
      */
     public function getEmail()
@@ -50,9 +55,19 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        return ["ROLE_USER"];
+        $roles = $this->roles;
+
+        if (!in_array("ROLE_USER", $roles)) {
+            $roles[] = "ROLE_USER";
+        }
+
+        return $roles;
     }
 
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
 
     public function getSalt()
     {
@@ -83,4 +98,5 @@ class User implements UserInterface
     {
         $this->password = $password;
     }
+
 }

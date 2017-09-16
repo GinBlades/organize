@@ -13,3 +13,8 @@ AppBundle\Entity\User:
       type: string
       length: 255
       unique: true
+    password:
+      type: string
+      length: 255
+    roles:
+      type: json_array

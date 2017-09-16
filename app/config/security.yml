@@ -22,6 +22,7 @@ security:
                     - app.security.login_form_authenticator
             logout:
                 path: /logout
-
+    access_control:
+        - { path: ^/category, roles: ROLE_USER }
     encoders:
         AppBundle\Entity\User: bcrypt
